@@ -1,6 +1,152 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+body{
+  
+  
+  background: white
+}
+#wrapper{
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
+#top-header { 
+  background-color: white; 
+  padding: 10px 10px;
+  justify-content: space-between;
+  display: flex;
+}
+.siteName a{
+  color:black;
+  text-decoration: none;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 2px;
+}
+
+#toolts a{
+  color:black;
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  padding: 2px 2px;
+}
+
+nav{
+  background-color: black;
+}
+nav ul{
+  margin:0;
+  padding: 0;
+  height: 50px;
+  gap: 24px;  
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+nav li{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding:  2px;
+  color: white;
+}
+#top-hero{
+  width:100%;
+  background-image: url("/images/vehicles/delorean.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;  
+}
+#car-info{
+  background-color: rgba(255, 255, 255, 0.85);
+  color:rgb(14, 131, 155);
+  font-size:18px;   
+}
+#car-info button{
+  background:rgb(14, 131, 155);
+  color: black;   
+  padding: 10px 18px;  
+  cursor: pointer;
+  font-size: 20px;  
+}
+#lower-hero{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: stretch;
+  padding: 0;
+}
+#upgrades, #reviews{
+  flex: 3 1 0;
+  min-width: 0;
+}
+#upgrades-list{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap: 16px;  
+}
+.upgrade{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.upgrade figure{
+  margin: 0;
+  background-color:rgb(14, 131, 155);
+  overflow: hidden;
+  aspect-ratio:  4/3;
+  padding: clamp(12px, 2vw, 24px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.upgrade img{
+  width: 90%;
+  height: 90%;
+  object-fit: contain; 
+  display: block;
+}
+#reviews li{
+  font-size: 20px;
+  line-height: 1.5;  
+}
+
+@media (min-width: 660px) {
+  body{
+    background-image:url("/images/site/small_check.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  #wrapper {
+  margin: 24px 96px;
+  border: 6px solid;
+  border-radius: 6px;
+  border-color:rgb(14, 131, 155);
+  background:white;
+  padding: 6px;
+} 
+#top-hero{
+  min-height: 50vh;
+} 
+  #lower-hero{
+    flex-direction: row;
+    align-items: stretch;
+  }
+  #upgrades, #reviews{
+    flex: 1 1 0;
+    width: 100%;
+    min-width: 0;
+  }  
 }
