@@ -1,5 +1,5 @@
-const utility = require("../utility")
-const bcaseController = {}
+const utilites = require("../utilities/")
+const baseController = {}
 
 baseController.buildHome = async function(req, res){
     const nav = await utilites.getNav()
