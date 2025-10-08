@@ -9,11 +9,14 @@ const express = require("express")
 const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
+const baseController = require("./controllers/baseController")
 
 /* ***********************
  * Routes
  *************************/
 app.use(static)
+//Index route
+app.get("/", baseController.buildHome)
 
 /* ***********************
  * Local Server Information
