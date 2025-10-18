@@ -33,21 +33,22 @@ Util.buildClassificationGrid = async function(data){
     grid = '<ul id="inv-display">'
     data.forEach(vehicle => { 
       grid += '<li>'
-      grid +=  '<a href="../../inv/detail/'+ vehicle.inv_id 
-      + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
-      + 'details"><img src="' + vehicle.inv_thumbnail 
-      +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
-      +' on CSE Motors" /></a>'
       grid += '<div class="namePrice">'
-      grid += '<hr />'
       grid += '<h2>'
-      grid += '<a href="../../inv/detail/' + vehicle.inv_id +'" title="View ' 
+      grid += '<a href="../../vehicle/detail/' + vehicle.inv_id +'" title="View ' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
       + vehicle.inv_make + ' ' + vehicle.inv_model + '</a>'
       grid += '</h2>'
       grid += '<span>$' 
       + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span>'
       grid += '</div>'
+      grid +=  '<a href="../../vehicle/detail/'+ vehicle.inv_id 
+      + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model
+       
+      + 'details"><img src="' + vehicle.inv_thumbnail 
+      +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
+      +' on CSE Motors" /></a>'
+     
       grid += '</li>'
     })
     grid += '</ul>'
@@ -56,5 +57,42 @@ Util.buildClassificationGrid = async function(data){
   }
   return grid
 }
+
+/* **************************************
+* Build the Vehicle Detail View HTML
+* ************************************ */
+Util.buildVehicleDetail = async function (data) {
+  let details
+  if (data.length > 0) {
+    details = '<ul id="inv-detail">'
+    data.forEach((vehicle) => {
+      details += '<li class="inv-card-detail">'
+      details += '<header class="inv-header">'
+      details += '<h2 class="inv-title">' + vehicle.inv_make + " " + vehicle.inv_model + `</h2>`
+      details += '<span>$' 
+       + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span>'
+      details += '</header>'
+      details += '<img src="' + vehicle.inv_image
+       + '"alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model + '">'     
+      details += '<p class="inv-year"><strong>Year:</strong>' + vehicle.inv_year + '</p>'
+      details += '<p class="inv-desc"><strong>Description:</strong>' + vehicle.inv_description +'</p>'
+      details += '<p class="inv-miles"><strong>Miles:</strong>' 
+       + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</p>'
+      details += '<p class="inv-color"><strong>Color:</strong>' + vehicle.inv_color +'</p>'
+      details += '</li>'
+    })
+    details += '</ul>'
+  } else {
+    details = '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+  }
+  return details
+}
+
+/* ****************************************
+ * Middleware For Handling Errors
+ * Wrap other function in this for 
+ * General Error Handling
+ **************************************** */
+Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
 
 module.exports = Util
