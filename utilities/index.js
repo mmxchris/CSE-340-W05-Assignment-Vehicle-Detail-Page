@@ -73,7 +73,7 @@ Util.buildVehicleDetail = async function (data) {
        + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span>'
       details += '</header>'
       details += '<img src="' + vehicle.inv_image
-       + '"alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model + '">'     
+       + '" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model + '">'     
       details += '<p class="inv-year"><strong>Year:</strong>' + vehicle.inv_year + '</p>'
       details += '<p class="inv-desc"><strong>Description:</strong>' + vehicle.inv_description +'</p>'
       details += '<p class="inv-miles"><strong>Miles:</strong>' 
