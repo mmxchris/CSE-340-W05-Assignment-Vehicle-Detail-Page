@@ -32,6 +32,8 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 app.use("/inv", utilities.handleErrors(inventoryRoute))
 //Vechile Detail by id route
 app.use("/vehicle", utilities.handleErrors(vehicleDetailRoute))
+
+app.get("/error", utilities.handleErrors(baseController.buildHomeError))
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
