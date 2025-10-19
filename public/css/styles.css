@@ -45,7 +45,7 @@ nav a{
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding: 0 px;
+  padding: 0px;
   color: #fff;
   text-decoration: none;
   font-weight: 600;
@@ -166,8 +166,7 @@ footer, #footer{
   grid-template-columns: 1fr;
   gap: 16px;
 }
-#inv-display li {
-  border: 2px solid rgb(14, 131, 155);
+#inv-display li {  
   padding: 12px;
   background-color: rgb(14, 131, 155);
 }
@@ -249,8 +248,7 @@ footer, #footer{
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-}.inv-card-detail {
-  border: 2px solid rgb(14, 131, 155);
+}.inv-card-detail {  
   padding: 20px;
   background-color: rgb(14, 131, 155);
   display: flex;
